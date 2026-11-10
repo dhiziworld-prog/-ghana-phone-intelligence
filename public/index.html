@@ -1,57 +1,291 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#102b46"><title>Ghana Phone Intelligence</title>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#102b46">
+<title>Ghana Phone Intelligence</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f2f6fa;color:#172b3a;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-header{background:linear-gradient(135deg,#102b46,#1769aa);color:white;padding:28px 18px}.wrap,main{max-width:720px;margin:auto}
-.brand{font-size:12px;letter-spacing:2px;opacity:.8;font-weight:700}.title{font-size:26px;font-weight:800;margin:8px 0}.sub{font-size:14px;line-height:1.5}
-main{padding:18px}.card{background:white;border:1px solid #dce5ed;border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:0 5px 18px #102b4610}
-h2{font-size:18px;margin:0 0 14px}.label{font-size:13px;font-weight:700;display:block;margin:12px 0 7px}
+*{box-sizing:border-box}
+body{margin:0;background:#f2f6fa;color:#172b3a;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:linear-gradient(135deg,#102b46,#1769aa);color:white;padding:28px 18px}
+.wrap,main{max-width:720px;margin:auto}
+.brand{font-size:12px;letter-spacing:2px;opacity:.8;font-weight:700}
+.title{font-size:26px;font-weight:800;margin:8px 0}
+.sub{font-size:14px;line-height:1.5}
+main{padding:18px}
+.card{background:white;border:1px solid #dce5ed;border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:0 5px 18px #102b4610}
+h2{font-size:18px;margin:0 0 14px}
+.label{font-size:13px;font-weight:700;display:block;margin:12px 0 7px}
 input{width:100%;padding:14px;border:1px solid #bdcbd8;border-radius:10px;font-size:17px}
 button{border:0;border-radius:10px;background:#1769aa;color:white;padding:13px 15px;font-size:15px;font-weight:700}
-button.secondary{background:#e8f1f8;color:#102b46}button.danger{background:#fff0ef;color:#a32920}
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.actions button{flex:1;min-width:130px}
-.note{font-size:12px;color:#607487;line-height:1.5;margin-top:12px}.result{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.item{background:#f5f8fb;border-radius:10px;padding:11px}.item small{display:block;color:#607487;font-size:11px;margin-bottom:5px}.item strong{font-size:14px;overflow-wrap:anywhere}
+button.secondary{background:#e8f1f8;color:#102b46}
+button.danger{background:#fff0ef;color:#a32920}
+button:disabled{opacity:.5}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.actions button{flex:1;min-width:130px}
+.note{font-size:12px;color:#607487;line-height:1.5;margin-top:12px}
+.result{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.item{background:#f5f8fb;border-radius:10px;padding:11px}
+.item small{display:block;color:#607487;font-size:11px;margin-bottom:5px}
+.item strong{font-size:14px;overflow-wrap:anywhere}
 .status{padding:12px;border-radius:10px;background:#edf7f1;color:#155d3d;font-size:13px;margin-top:12px;line-height:1.5}
-.history-row{padding:12px 0;border-bottom:1px solid #dce5ed;font-size:14px}.hidden{display:none!important}
+.history-row{padding:12px 0;border-bottom:1px solid #dce5ed;font-size:14px}
+.hidden{display:none!important}
 footer{text-align:center;color:#607487;font-size:12px;padding:8px 18px 30px}
-</style></head><body>
-<header><div class="wrap"><div class="brand">GHANA • TELECOM TOOLS</div><div class="title">Phone Intelligence</div>
-<div class="sub">Number-format checks, estimated network information and voluntary GPS location sharing.</div></div></header>
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<div class="brand">GHANA • TELECOM TOOLS</div>
+<div class="title">Phone Intelligence</div>
+<div class="sub">Number-format checks, estimated network information and voluntary GPS location sharing.</div>
+</div>
+</header>
 <main>
-<section class="card"><h2>Phone number lookup</h2><label class="label" for="phone">Ghana telephone number</label>
-<input id="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="0241234567">
-<div class="actions"><button id="lookup">Check number</button><button id="clear" class="secondary">Clear</button></div>
-<p class="note">Enter a local 10-digit number beginning with 0, or an international number beginning +233. Network is a prefix-based estimate and may be wrong due to number portability.</p>
-<div id="lookupResult" class="hidden"><hr style="border:0;border-top:1px solid #dce5ed;margin:18px 0">
-<div class="result"><div class="item"><small>Phone number</small><strong id="rPhone">—</strong></div>
-<div class="item"><small>Country</small><strong>Ghana</strong></div><div class="item"><small>Estimated network</small><strong id="rNetwork">—</strong></div>
-<div class="item"><small>Format check</small><strong>Valid format</strong></div></div>
+<section class="card">
+<h2>Phone number lookup</h2>
+
+Ghana telephone number
+
+<input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0241234567">
+<div class="actions">
+<button id="lookup">Check number</button>
+<button id="clear" class="secondary">Clear</button>
+</div>
+<p class="note">
+Enter a Ghanaian 10-digit mobile number beginning with 02 or 05, or an international number beginning +233.
+Network is a prefix-based estimate and may be wrong due to number portability.
+</p>
+<div id="lookupResult" class="hidden">
+<hr style="border:0;border-top:1px solid #dce5ed;margin:18px 0">
+<div class="result">
+<div class="item">
+<small>Phone number</small>
+<strong id="rPhone">—</strong>
+</div>
+<div class="item">
+<small>Country</small>
+<strong>Ghana</strong>
+</div>
+<div class="item">
+<small>Estimated network</small>
+<strong id="rNetwork">—</strong>
+</div>
+<div class="item">
+<small>Format check</small>
+<strong>Valid format</strong>
+</div>
+</div>
 <div id="saveStatus" class="note">Saved to this iPhone's browser history.</div>
-<div class="actions"><button id="shareBtn">Create GPS sharing link</button></div><div id="shareResult" class="status hidden"></div>
-<p class="note">This does not reveal a subscriber's name, Ghana Card details, SIM registration records or live location.</p></div></section>
-<section class="card"><h2>Location sharing status</h2>
-<p class="note">The phone owner must open a sharing link, press the share button and grant browser location permission.</p>
-<label class="label" for="token">Sharing token</label><input id="token" placeholder="Paste a token created above">
-<div class="actions"><button id="refresh" class="secondary">Refresh shared location</button><button id="maps" class="secondary" disabled>Open Google Maps</button></div>
-<div id="gpsStatus" class="note">No location loaded.</div></section>
-<section class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
-<h2 style="margin:0">Search history</h2><button id="clearHistory" class="danger">Clear history</button></div>
-<div id="history" class="note" style="margin-top:12px">No searches yet on this device.</div></section>
-</main><footer>Privacy-first demo • No secret tracking • No access to telecom subscriber databases</footer>
+<div class="actions">
+<button id="shareBtn">Create GPS sharing link</button>
+</div>
+<div id="shareResult" class="status hidden"></div>
+<p class="note">
+This does not reveal a subscriber's name, Ghana Card details, SIM registration records or live location.
+</p>
+</div>
+</section>
+<section class="card">
+<h2>Location sharing status</h2>
+<p class="note">
+The phone owner must open a sharing link, press the share button and grant browser location permission.
+</p>
+
+Sharing token
+
+<input id="token" placeholder="Paste a token created above">
+<div class="actions">
+<button id="refresh" class="secondary">Refresh shared location</button>
+<button id="maps" class="secondary" disabled>Open Google Maps</button>
+</div>
+<div id="gpsStatus" class="note">No location loaded.</div>
+</section>
+<section class="card">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+<h2 style="margin:0">Search history</h2>
+<button id="clearHistory" class="danger">Clear history</button>
+</div>
+<div id="history" class="note" style="margin-top:12px">
+No searches yet on this device.
+</div>
+</section>
+</main>
+<footer>
+Privacy-first demo • No secret tracking • No access to telecom subscriber databases
+</footer>
 <script>
-const $=id=>document.getElementById(id);let currentNumber="",coords=null;
-const API=""; // Same-origin API; deploy the included Node server to enable online features.
-function normalize(raw){let n=raw.replace(/[\\s()-]/g,"");if(n.startsWith("+233"))n="0"+n.slice(4);else if(n.startsWith("233"))n="0"+n.slice(3);return n;}
-function network(n){let p=n.slice(0,3);if(["024","025","053","054","055","059"].includes(p))return "Likely MTN";if(["020","050"].includes(p))return "Likely Telecel";if(["026","027","056","057"].includes(p))return "Likely AT";return "Unknown / unlisted prefix";}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-function loadHistory(){let h=JSON.parse(localStorage.getItem("gpi_history")||"[]");$("history").innerHTML=h.length?h.map(x=>`<div class="history-row"><b>${esc(x.phone)}</b><br><span class="note">${esc(x.network)} · ${esc(x.time)}</span></div>`).join(""):"No searches yet on this device.";}
-$("lookup").onclick=async()=>{let n=normalize($("phone").value.trim());if(!/^0\\d{9}$/.test(n)){alert("Enter a valid Ghana number, e.g. 0241234567.");return;}currentNumber=n;$("rPhone").textContent=n;$("rNetwork").textContent=network(n);$("lookupResult").classList.remove("hidden");let h=JSON.parse(localStorage.getItem("gpi_history")||"[]");h.unshift({phone:n,network:network(n),time:new Date().toLocaleString()});localStorage.setItem("gpi_history",JSON.stringify(h.slice(0,30)));loadHistory();$("saveStatus").textContent="Saved to this iPhone's browser history.";try{let r=await fetch(API+"/api/lookups",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({phone:n})});if(r.ok)$("saveStatus").textContent="Saved to this device and online database.";}catch(e){}$("shareResult").classList.add("hidden");};
-$("clear").onclick=()=>{$("phone").value="";$("lookupResult").classList.add("hidden");};
-$("shareBtn").onclick=async()=>{if(!currentNumber)return;try{let r=await fetch(API+"/api/shares",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({phone:currentNumber})});if(!r.ok)throw Error();let d=await r.json();$("token").value=d.token;$("shareResult").classList.remove("hidden");$("shareResult").innerHTML=`Send this consent link to the phone owner:<br><a href="${esc(d.shareUrl)}">${esc(d.shareUrl)}</a><br><br>They must open it and choose to share GPS.`;if(navigator.share)await navigator.share({title:"Share GPS location",text:"Open this link if you agree to share your current location:",url:d.shareUrl});}catch(e){$("shareResult").classList.remove("hidden");$("shareResult").textContent="Online sharing is not connected. Deploy the included server over HTTPS to enable sharing."; }};
-$("refresh").onclick=async()=>{let t=$("token").value.trim();if(!t){alert("Enter a sharing token.");return;}try{let r=await fetch(API+"/api/shares/"+encodeURIComponent(t));if(!r.ok)throw Error();let d=await r.json();if(!d.shared){$("gpsStatus").textContent="The phone owner has not shared a location yet.";return;}coords={lat:d.latitude,lon:d.longitude};$("gpsStatus").textContent=`Location shared voluntarily. Latitude: ${d.latitude}, longitude: ${d.longitude}. Accuracy: ${d.accuracy??"not provided"} metres.`;$("maps").disabled=false;}catch(e){$("gpsStatus").textContent="Could not retrieve status. Check deployment or sharing token."; }};
-$("maps").onclick=()=>{if(coords)location.href=`https://www.google.com/maps?q=${coords.lat},${coords.lon}`;};
-$("clearHistory").onclick=()=>{localStorage.removeItem("gpi_history");loadHistory();};loadHistory();
-</script></body></html>
+const $ = id => document.getElementById(id);
+let currentNumber = "";
+let coords = null;
+const API = "";
+// Normalize Ghanaian phone numbers.
+function normalize(raw){
+let n = raw.trim().replace(/[\s()-]/g,"");
+if(n.startsWith("00233")){
+n = "0" + n.slice(5);
+}
+else if(n.startsWith("+233")){
+n = "0" + n.slice(4);
+}
+else if(n.startsWith("233")){
+n = "0" + n.slice(3);
+}
+return n;
+}
+// Validate Ghanaian mobile number format.
+function validGhanaNumber(n){
+return /^0[25]\d{8}$/.test(n);
+}
+// Estimate network from number prefix.
+function network(n){
+let p = n.slice(0,3);
+if(["024","025","053","054","055","059"].includes(p))
+return "Likely MTN";
+if(["020","050"].includes(p))
+return "Likely Telecel";
+if(["026","027","056","057"].includes(p))
+return "Likely AT";
+return "Unknown / unlisted prefix";
+}
+// Safely display text.
+function esc(s){
+return String(s).replace(/[&<>"']/g,c=>({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#39;"
+}[c]));
+}
+// Load local search history.
+function loadHistory(){
+let h = JSON.parse(localStorage.getItem("gpi_history") || "[]");
+$("history").innerHTML = h.length
+? h.map(x=>`
+<div class="history-row">
+<b>${esc(x.phone)}</b><br>
+<span class="note">${esc(x.network)} · ${esc(x.time)}</span>
+</div>
+`).join("")
+: "No searches yet on this device.";
+}
+// Phone lookup.
+$("lookup").onclick = async()=>{
+let n = normalize($("phone").value);
+if(!validGhanaNumber(n)){
+alert("Enter a valid Ghanaian mobile number, e.g. 0241234567.");
+return;
+}
+currentNumber = n;
+$("rPhone").textContent = n;
+$("rNetwork").textContent = network(n);
+$("lookupResult").classList.remove("hidden");
+let h = JSON.parse(localStorage.getItem("gpi_history") || "[]");
+h.unshift({
+phone:n,
+network:network(n),
+time:new Date().toLocaleString()
+});
+localStorage.setItem("gpi_history",JSON.stringify(h.slice(0,30)));
+loadHistory();
+$("saveStatus").textContent = "Saved to this iPhone's browser history.";
+try{
+let r = await fetch(API+"/api/lookups",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({phone:n})
+});
+if(r.ok){
+$("saveStatus").textContent = "Saved to this device and online database.";
+}
+}catch(e){
+console.log("Online lookup unavailable:",e);
+}
+$("shareResult").classList.add("hidden");
+};
+// Clear input.
+$("clear").onclick = ()=>{
+$("phone").value = "";
+$("lookupResult").classList.add("hidden");
+currentNumber = "";
+};
+// Generate consent-based GPS sharing link.
+$("shareBtn").onclick = async()=>{
+if(!currentNumber)return;
+try{
+let r = await fetch(API+"/api/shares",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({phone:currentNumber})
+});
+if(!r.ok)throw Error("Sharing service unavailable");
+let d = await r.json();
+$("token").value = d.token;
+$("shareResult").classList.remove("hidden");
+$("shareResult").innerHTML =
+`Send this consent link to the phone owner:<br>
+<a href="${esc(d.shareUrl)}">${esc(d.shareUrl)}</a>
+<br><br>
+They must open it and choose to share GPS.`;
+if(navigator.share){
+await navigator.share({
+title:"Share GPS location",
+text:"Open this link if you agree to share your current location:",
+url:d.shareUrl
+});
+}
+}catch(e){
+$("shareResult").classList.remove("hidden");
+$("shareResult").textContent =
+"Online sharing is not connected. Check that the backend is deployed correctly over HTTPS.";
+}
+};
+// Refresh shared location.
+$("refresh").onclick = async()=>{
+let t = $("token").value.trim();
+if(!t){
+alert("Enter a sharing token.");
+return;
+}
+try{
+let r = await fetch(API+"/api/shares/"+encodeURIComponent(t));
+if(!r.ok)throw Error("Unable to retrieve location");
+let d = await r.json();
+if(!d.shared){
+$("gpsStatus").textContent =
+"The phone owner has not shared a location yet.";
+return;
+}
+coords = {
+lat:d.latitude,
+lon:d.longitude
+};
+$("gpsStatus").textContent =
+`Location shared voluntarily. Latitude: ${d.latitude}, longitude: ${d.longitude}. Accuracy: ${d.accuracy ?? "not provided"} metres.`;
+$("maps").disabled = false;
+}catch(e){
+$("gpsStatus").textContent =
+"Could not retrieve status. Check deployment or sharing token.";
+}
+};
+// Open Google Maps.
+$("maps").onclick = ()=>{
+if(coords){
+location.href =
+`https://www.google.com/maps?q=${coords.lat},${coords.lon}`;
+}
+};
+// Clear local history.
+$("clearHistory").onclick = ()=>{
+localStorage.removeItem("gpi_history");
+loadHistory();
+};
+// Load history on startup.
+loadHistory();
+</script>
+</body>
+</html>
